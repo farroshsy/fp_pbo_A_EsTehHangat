@@ -33,7 +33,8 @@ public class View extends JPanel {
 	public Bonus bonus;
 	
 	private Font scoreAppearence = new Font("Arial", Font.PLAIN, 20);
-	private Font textAppearence = new Font("Arial", Font.PLAIN, 80);
+	private Font textAppearence1 = new Font("Arial", Font.PLAIN, 50);
+	private Font textAppearence2 = new Font("Arial", Font.PLAIN, 80);
 	
 	public int score = 0;
 	
@@ -95,13 +96,13 @@ public class View extends JPanel {
 		
 		// Message de d�but du jeu
 		if(Time.Tachometer < 500) {
-			g.setFont(textAppearence);
-		    g.drawString("Good luck !", 95, 100);
+			g.setFont(textAppearence1);
+		    g.drawString("Shoot The Virus!", 100, 100);
 		}
 		
 		// Affichage de la fin du jeu
 		if(this.player.isLife() == false) {
-			g.setFont(textAppearence);
+			g.setFont(textAppearence2);
 			g.drawString("GAME OVER", 50, 100);
 		}
 		
