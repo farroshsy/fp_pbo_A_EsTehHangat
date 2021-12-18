@@ -52,7 +52,7 @@ public class Backgrounds {
 		graphics.drawString("Lives: ", WindowManager.LIMIT_LEFT + 75 * WindowManager.ZOOM, WindowManager.LIMIT_DOWN + 15 * WindowManager.ZOOM);
 		
 		for(int i = 0; i < lives; i++) {
-			graphics.drawImage(Resources.getTexture("player", 0, 0, PlayerShip.SIZE_X, PlayerShip.SIZE_Y), WindowManager.LIMIT_LEFT + (100 + i * 10) * WindowManager.ZOOM, WindowManager.LIMIT_DOWN + 10 * WindowManager.ZOOM, PlayerShip.SIZE_X * WindowManager.ZOOM / 2, PlayerShip.SIZE_Y * WindowManager.ZOOM / 2, null);
+			graphics.drawImage(Resources.getTexture("Group 22 (1)", 0, 0, PlayerShip.SIZE_X, PlayerShip.SIZE_Y), WindowManager.LIMIT_LEFT + (100 + i * 10) * WindowManager.ZOOM, WindowManager.LIMIT_DOWN + 10 * WindowManager.ZOOM, PlayerShip.SIZE_X * WindowManager.ZOOM / 2, PlayerShip.SIZE_Y * WindowManager.ZOOM / 2, null);
 		}
 	}
 	
