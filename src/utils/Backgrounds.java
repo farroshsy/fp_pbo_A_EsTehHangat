@@ -36,7 +36,7 @@ public class Backgrounds {
 		graphics.drawString("= 10 points", WindowManager.WIDTH / 2 - 10 * WindowManager.ZOOM, 97 * WindowManager.ZOOM);
 		graphics.drawString("= 20 points", WindowManager.WIDTH / 2 - 10 * WindowManager.ZOOM, 112 * WindowManager.ZOOM);
 		graphics.drawString("= 30 points", WindowManager.WIDTH / 2 - 10 * WindowManager.ZOOM, 127 * WindowManager.ZOOM);
-		graphics.drawString("= ???", WindowManager.WIDTH / 2 - 10 * WindowManager.ZOOM, 142 * WindowManager.ZOOM);
+		graphics.drawString("= 50/100/150 points", WindowManager.WIDTH / 2 - 10 * WindowManager.ZOOM, 142 * WindowManager.ZOOM);
 	}
 	
 	public static void drawPlayingBackground(Graphics graphics, int score, byte lives) {

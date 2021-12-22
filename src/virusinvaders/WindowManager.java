@@ -9,7 +9,7 @@ public class WindowManager {
 	public static final byte ZOOM = 3;
 	
 	public static final int WIDTH = 256 * ZOOM;
-	public static final int HEIGHT = 224 * ZOOM;
+	public static final int HEIGHT = 219 * ZOOM;
 	
 	public static final int LIMIT_LEFT = 15 * ZOOM;
 	public static final int LIMIT_RIGHT = WIDTH - 15 * ZOOM;
