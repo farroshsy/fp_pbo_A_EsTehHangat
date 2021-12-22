@@ -10,7 +10,7 @@ public class Player extends Model {
 	public static final byte SIZE_X = 13;
 	public static final byte SIZE_Y = 8;
 	
-	//Determine where ship should move
+	//Determine where player character should move
 	private boolean left;
 	private boolean right;
 	
@@ -37,12 +37,12 @@ public class Player extends Model {
 	}
 
 	public void setLeft(boolean left) {
-		//Tells the ship it should move left
+		//Tells the player character it should move left
 		this.left = left;
 	}
 	
 	public void setRight(boolean right) {
-		//Tells the ship it should move right
+		//Tells the player character it should move right
 		this.right = right;
 	}
 	
@@ -51,10 +51,10 @@ public class Player extends Model {
 	}
 	
 	public void move() {
-		//Ship can only move if it hasn't been hit
+		//player character can only move if it hasn't been hit
 		if(deathTime < 0) {
-			//Check if left or right are true and move ship accordingly
-			//Also checks if ship is not going off screen
+			//Check if left or right are true and move player character accordingly
+			//Also checks if player character is not going off screen
 			if(left && model.x > WindowManager.LIMIT_LEFT) super.model.x -= 1 * WindowManager.ZOOM;
 			if(right && model.x + model.width < WindowManager.LIMIT_RIGHT) super.model.x += 1 * WindowManager.ZOOM;
 		}
@@ -102,11 +102,11 @@ public class Player extends Model {
 	
 	@Override
 	public void draw(Graphics graphics) {
-		if(deathTime < 0) //Ship is not dead, show regular sprite
+		if(deathTime < 0) //player character is not dead, show regular sprite
 			super.draw(graphics, 0, 0, SIZE_X, SIZE_Y);
-		else if(deathTime % 2 == 0) //Alien is dead, show death animation (frame 0)
+		else if(deathTime % 2 == 0) //virus is dead, show death animation (frame 0)
 			super.draw(graphics, SIZE_X, 0, SIZE_X, SIZE_Y);
-		else //Alien is dead, show death animation (frame 1)
+		else //virus is dead, show death animation (frame 1)
 			super.draw(graphics, SIZE_X * 2, 0, SIZE_X, SIZE_Y);
 	}
 }

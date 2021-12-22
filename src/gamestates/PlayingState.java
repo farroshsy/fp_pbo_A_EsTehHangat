@@ -47,12 +47,12 @@ public class PlayingState extends GameState {
 		
 		//The game temporarily stops if the player was hit
 		if(!player.isDying()) {
-			//Aliens logic
+			//virus logic
 			this.invaders.move();
 			this.invaders.shoot(random, projectiles);
 			this.invaders.checkCollision(projectiles, random);
 			
-			//Red player
+			//Red corona
 			this.invaders.createCorona(random);
 			
 			//Projectiles logic

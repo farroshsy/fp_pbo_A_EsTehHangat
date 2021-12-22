@@ -63,7 +63,7 @@ public class InvaderManager {
 				this.motionX = - this.motionX;
 			}
 		}
-		//Move red UFO
+		//Move red corona
 		this.corona.move();
 	}
 	
@@ -91,7 +91,7 @@ public class InvaderManager {
 			//Every frame time is increased by 1
 			this.shotTime++;
 		} else {
-			//When time reaches value of delay we pick a random alien and set a random delay
+			//When time reaches value of delay we pick a random virus and set a random delay
 			this.chooseRandom(random, projectilesManager);
 			this.shootDelay = random.nextInt(30) + 10;
 			this.shotTime = 0;
@@ -100,11 +100,11 @@ public class InvaderManager {
 	}
 	
 	private void chooseRandom(Random random, ProjectilesManager projectilesManager) {
-		//Choose a random alien
+		//Choose a random virus
 		int choiceI = random.nextInt(5);
 		int choiceJ = random.nextInt(11);
 		
-		//If that alien is the last of the column or the last alive the alien can shoot
+		//If that virus is the last of the column or the last alive the virus can shoot
 		if(choiceI == 4) {
 			if(!viruses[choiceI][choiceJ].isDead())
 				this.viruses[choiceI][choiceJ].shoot(projectilesManager);
@@ -114,7 +114,7 @@ public class InvaderManager {
 				this.viruses[choiceI][choiceJ].shoot(projectilesManager);
 			}
 			else {
-				//If the alien can't shoot another one is chosen
+				//If the virus can't shoot another one is chosen
 				this.chooseRandom(random, projectilesManager);
 			}
 		}
@@ -124,9 +124,9 @@ public class InvaderManager {
 		for(int i = 0; i < viruses.length; i++) {
 			for(int j = 0; j < viruses[i].length; j++) {
 				if(!viruses[i][j].isDead()) {
-					//If an alien is not dead we check if it collides with a projectile
+					//If a virus is not dead we check if it collides with a projectile
 					if(projectilesManager.checkCollision(viruses[i][j])) {
-						//If it collides, the alien is set dead and score is increased
+						//If it collides, the virus is set dead and score is increased
 						this.viruses[i][j].die();
 						this.defeated++;
 						this.assignScore(viruses[i][j].getType());
@@ -135,7 +135,7 @@ public class InvaderManager {
 				}
 			}
 		}
-		//Then we check if the red UFO collides with a projectile
+		//Then we check if the red corona collides with a projectile
 		if(corona.checkCollision(projectilesManager)) {
 			int[] randomBonus = new int[] {50, 100, 150};
 			this.score += randomBonus[random.nextInt(randomBonus.length)];
@@ -147,7 +147,7 @@ public class InvaderManager {
 	}
 	
 	private void assignScore(Virus.Type virusType) {
-		//Assign a score depending on the type of alien defeated
+		//Assign a score depending on the type of virus defeated
 		switch(virusType) {
 		case VIRUS1:
 			this.score += 10;
@@ -171,12 +171,12 @@ public class InvaderManager {
 	}
 	
 	public boolean haveLanded() {
-		//Check if the lowest alien has landed
-		return viruses[4][10].getPosY() >= 150 * WindowManager.ZOOM;
+		//Check if the lowest virus has landed
+		return viruses[4][10].getPosY() >= 180 * WindowManager.ZOOM;
 	}
 
 	public void createCorona(Random random) {
-		//Every frame there is a 1 in 500 chances that the red UFO appears
+		//Every frame there is a 1 in 500 chances that the red corona appears
 		if(random.nextInt(500) == 0) {
 			//Choose randomly if it should move from left to right or from right to left
 			if(random.nextBoolean())
@@ -197,7 +197,7 @@ public class InvaderManager {
 				}
 			}
 		}
-		//Draw red UFO
+		//Draw red corona
 		this.corona.draw(graphics);
 	}
 }

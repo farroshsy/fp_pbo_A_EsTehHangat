@@ -18,10 +18,10 @@ public class Corona extends Model {
 	}
 	
 	public void setMotion(int motion) {
-		//Set the UFO's motion for it to start moving
+		//Set the corona's motion for it to start moving
 		this.motion = motion;
 		
-		//Also moves the UFO to the left or to the right of the screen
+		//Also moves the corona to the left or to the right of the screen
 		if(motion > 0) {
 			super.model.x = -SIZE_X * WindowManager.ZOOM;
 			Audio.playSound("/sound/Ambulance.wav");
@@ -33,17 +33,12 @@ public class Corona extends Model {
 	}
 	
 	public void move() {
-		//Move the UFO
-		super.model.x += this.motion * WindowManager.ZOOM;
-		if(motion > 0) {
-			super.model.x -= 3;
-		}else {
-			super.model.x += 3;
-		}
+		//Move the corona
+		super.model.x += this.motion * 2;
 	}
 	
 	public boolean checkCollision(ProjectilesManager projectilesManager) {
-		//Check if UFO was hit
+		//Check if corona was hit
 		if(projectilesManager.checkCollision(this)) {
 			super.model.x = -SIZE_X * WindowManager.ZOOM;
 			Audio.playSound("/sound/Destroyed.wav");
